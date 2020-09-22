@@ -1,32 +1,42 @@
 // Assignment code here
 
-var characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-var numChar = function() {
-
-  var numberEntered = window.prompt("How many characters are needed for the password, please choose between 8 and 128."); 
-
-  numberEntered = parseInt(numberEntered);
-  console.log(numberEntered);
-
-  if (numberEntered < 2 || numberEntered > 128 ) {
-    window.alert("Please pick a number of characters between 8 and 128");
-    numChar();
-    }
-  else {
-    numChar = numberEntered; 
-    return;
-  }
-}
+var characters = [""]
 
 var generatePassword = function() {
+
+  var numChar = function() {
+
+    var numberEntered = window.prompt("How many characters are needed for the password, please choose between 8 and 128."); 
+  
+    numberEntered = parseInt(numberEntered);
+    console.log(numberEntered);
+  
+    if (numberEntered < 2 || numberEntered > 128 || numberEntered === null || numberEntered === '' || isNaN(numberEntered) ) {
+      window.alert("Please pick a number of characters between 8 and 128");
+      numChar();
+      }
+    else {
+      numChar = numberEntered; 
+      return;
+    }
+  }
 
   numChar();
   console.log(numChar);
 
+  var lowercaseVal = window.confirm("Press OK if password requires lowercase letters.");
   var uppercaseVal = window.confirm("Press OK if password requires uppercase letters.");
   var numberVal = window.confirm("Press OK if password require numbers.");
   var specialCharVal = window.confirm("Press OK if password require special characters.");
+
+  if (!lowercaseVal && !uppercaseVal && !numberVal && !specialCharVal) {
+    window.alert("Password needs to have one of the following: Lowercase, Uppercase, numbers, or special characters.");
+    return generatePassword();
+  }
+
+  if (lowercaseVal) {
+    characters.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+  }
 
   if (uppercaseVal) {
     characters.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
@@ -39,6 +49,8 @@ var generatePassword = function() {
   if (specialCharVal) {
     characters.push("!", "#", "&", "$", "%", "&", "*", "+", "@", "=", "?", "~");
   }
+
+  characters.shift();
 
   console.log(characters);
 
@@ -55,6 +67,23 @@ var generatePassword = function() {
     console.log(password);
 
     debugger;
+
+    if (lowercaseVal) {
+      
+      for (var i = 0; i < numChar;) {
+        var lowerChecker = password.charAt(i);
+
+        if (lowerChecker = characters) {
+          alert("True");
+          break;
+        } else if (i < numChar) {
+          i++;
+        }
+        if (i >= numChar) {  
+          random();
+        }
+      }
+    }    
 
     if (uppercaseVal) {
 
