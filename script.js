@@ -1,9 +1,12 @@
 // Assignment code here
 
+// Adds initial array
 var characters = [""]
 
+// Main Function
 var generatePassword = function() {
 
+  //Function to obtain the user input and verify it is a number between 9 and 128
   var numChar = function() {
 
     var numberEntered = window.prompt("How many characters are needed for the password, please choose between 8 and 128."); 
@@ -11,7 +14,7 @@ var generatePassword = function() {
     numberEntered = parseInt(numberEntered);
     console.log(numberEntered);
   
-    if (numberEntered < 2 || numberEntered > 128 || numberEntered === null || numberEntered === '' || isNaN(numberEntered) ) {
+    if (numberEntered < 8 || numberEntered > 128 || numberEntered === null || numberEntered === '' || isNaN(numberEntered) ) {
       window.alert("Please pick a number of characters between 8 and 128");
       numChar();
       }
@@ -24,16 +27,19 @@ var generatePassword = function() {
   numChar();
   console.log(numChar);
 
+  // Obtain values from prompts confirming lowercase, uppercase, number, and special character selections.
   var lowercaseVal = window.confirm("Press OK if password requires lowercase letters.");
   var uppercaseVal = window.confirm("Press OK if password requires uppercase letters.");
   var numberVal = window.confirm("Press OK if password require numbers.");
   var specialCharVal = window.confirm("Press OK if password require special characters.");
 
+  // Checks to make sure at least one category was selected.
   if (!lowercaseVal && !uppercaseVal && !numberVal && !specialCharVal) {
     window.alert("Password needs to have one of the following: Lowercase, Uppercase, numbers, or special characters.");
     return generatePassword();
   }
 
+  // Pushes the selected values into the array.
   if (lowercaseVal) {
     characters.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
   }
@@ -47,33 +53,61 @@ var generatePassword = function() {
   }
 
   if (specialCharVal) {
-    characters.push("!", "#", "&", "$", "%", "&", "*", "+", "@", "=", "?", "~");
+    characters.push("!", "#", "&", "$", "%", "&", "*", "+", "@", "=", "?", "~", ">", "<", ":", ";", "-");
   }
 
+  // Removes the first empty string element
   characters.shift();
 
   console.log(characters);
 
+  //Function that creates the random password based off of the available array, and checks to make sure it has each required character type.
   var random = function() {
 
-    var password = "";
-
+    var genPassword = "";
+    
+    // Creates a string based on how many characters are needed
     for (var i = 0; i < numChar; i++) {
       var randomChar = characters [Math.floor(Math.random() * characters.length)];
-      password += randomChar;
+      genPassword += randomChar;
       console.log(randomChar);
     }
 
-    console.log(password);
+    console.log(genPassword);
 
-    debugger;
 
+    // Confirms password contains at least one lowercase value (if selected earlier)
     if (lowercaseVal) {
       
       for (var i = 0; i < numChar;) {
-        var lowerChecker = password.charAt(i);
+        var lowerChecker = genPassword.charAt(i);
 
-        if (lowerChecker = characters) {
+        if (lowerChecker === "a" ||
+        lowerChecker === "b" ||
+        lowerChecker === "c" ||
+        lowerChecker === "d" ||
+        lowerChecker === "e" ||
+        lowerChecker === "f" ||
+        lowerChecker === "g" ||
+        lowerChecker === "h" ||
+        lowerChecker === "i" ||
+        lowerChecker === "j" ||
+        lowerChecker === "k" ||
+        lowerChecker === "l" ||
+        lowerChecker === "m" ||
+        lowerChecker === "n" ||
+        lowerChecker === "o" ||
+        lowerChecker === "p" ||
+        lowerChecker === "q" ||
+        lowerChecker === "R" ||
+        lowerChecker === "s" ||
+        lowerChecker === "t" ||
+        lowerChecker === "u" ||
+        lowerChecker === "v" ||
+        lowerChecker === "w" ||
+        lowerChecker === "x" ||
+        lowerChecker === "y" ||
+        lowerChecker === "z") {
           alert("True");
           break;
         } else if (i < numChar) {
@@ -85,10 +119,11 @@ var generatePassword = function() {
       }
     }    
 
+      // Confirms password contains at least one uppercase value (if selected earlier)
     if (uppercaseVal) {
 
       for (var i = 0; i < numChar;) {
-        var upperChecker = password.charAt(i);
+        var upperChecker = genPassword.charAt(i);
 
         if (upperChecker === "A" ||
          upperChecker === "B" ||
@@ -127,9 +162,10 @@ var generatePassword = function() {
       }
     }
 
+      // Confirms password contains at least one number value (if selected earlier)
     if (numberVal) {
       for (var i = 0; i < numChar;) {
-        var numChecker = password.charAt(i);
+        var numChecker = genPassword.charAt(i);
 
         if (numChecker === "0" ||
           numChecker === "1" ||
@@ -151,31 +187,46 @@ var generatePassword = function() {
         }
       }
     }
+
+      // Confirms password contains at least one special character value (if selected earlier)
+    if (specialCharVal) {
+      for (var i = 0; i < numChar;) {
+        var specialChecker = genPassword.charAt(i);
+
+        if (specialChecker === "!" ||
+        specialChecker === "#" ||
+        specialChecker === "&" ||
+        specialChecker === "$" ||
+        specialChecker === "%" ||
+        specialChecker === "&" ||
+        specialChecker === "*" ||
+        specialChecker === "+" ||
+        specialChecker === "@" ||
+        specialChecker === "=" ||
+        specialChecker === "?" ||
+        specialChecker === "~" ||
+        specialChecker === ">" ||
+        specialChecker === "<" ||
+        specialChecker === ":" ||
+        specialChecker === ";" ||
+        specialChecker === "-") {
+          alert("True")
+          break;
+        } else if (i < numChar) {
+          i++;
+        } 
+        if (i >= numChar) {
+          random();
+        }
+      }
+    }
+    return genPassword;
   }
 
   random();
 
-
-
+  
 }
-
-
-
-
-
-var numbers = []
-
-var requireNumbers = function() {
-
-}
-
-var requireLetters = function () {
-
-}
-
-
-
-
 
 
 
