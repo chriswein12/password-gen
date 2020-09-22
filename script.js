@@ -9,7 +9,7 @@ var numChar = function() {
   numberEntered = parseInt(numberEntered);
   console.log(numberEntered);
 
-  if (numberEntered < 8 || numberEntered > 128 ) {
+  if (numberEntered < 2 || numberEntered > 128 ) {
     window.alert("Please pick a number of characters between 8 and 128");
     numChar();
     }
@@ -20,7 +20,7 @@ var numChar = function() {
 }
 
 var generatePassword = function() {
- debugger;
+
   numChar();
   console.log(numChar);
 
@@ -54,31 +54,72 @@ var generatePassword = function() {
 
     console.log(password);
 
+    debugger;
+
     if (uppercaseVal) {
+
       for (var i = 0; i < numChar;) {
         var upperChecker = password.charAt(i);
 
-        if (upperChecker === upperChecker.toUpperCase()){
+        if (upperChecker === "A" ||
+         upperChecker === "B" ||
+         upperChecker === "C" ||
+         upperChecker === "D" ||
+         upperChecker === "E" ||
+         upperChecker === "F" ||
+         upperChecker === "G" ||
+         upperChecker === "H" ||
+         upperChecker === "I" ||
+         upperChecker === "J" ||
+         upperChecker === "K" ||
+         upperChecker === "L" ||
+         upperChecker === "M" ||
+         upperChecker === "N" ||
+         upperChecker === "O" ||
+         upperChecker === "P" ||
+         upperChecker === "Q" ||
+         upperChecker === "R" ||
+         upperChecker === "S" ||
+         upperChecker === "T" ||
+         upperChecker === "U" ||
+         upperChecker === "V" ||
+         upperChecker === "W" ||
+         upperChecker === "X" ||
+         upperChecker === "Y" ||
+         upperChecker === "Z") {
           alert("True")
           break;
-        } else if (upperChecker !== upperChecker.toUpperCase && i < numChar) {
+        } else if (i < numChar) {
           i++;
-        } else {
+        }
+        if (i >= numChar) {  
           random();
         }
       }
     }
 
-    for (var i = 0; i < numChar;) {
-      var numChecker = password.charAt(i);
+    if (numberVal) {
+      for (var i = 0; i < numChar;) {
+        var numChecker = password.charAt(i);
 
-      if (numChecker === upperChecker.toUpperCase()){
-        alert("True")
-        break;
-      } else if (upperChecker !== upperChecker.toUpperCase && i < numChar) {
-        i++;
-      } else {
-        random();
+        if (numChecker === "0" ||
+          numChecker === "1" ||
+          numChecker === "2" ||
+          numChecker === "3" ||
+          numChecker === "4" ||
+          numChecker === "5" ||
+          numChecker === "6" ||
+          numChecker === "7" ||
+          numChecker === "8" ||
+          numChecker === "9") {
+          alert("True")
+          break;
+        } else if (i < numChar) {
+          i++;
+        } 
+        if (i >= numChar) {
+          random();
+        }
       }
     }
   }
