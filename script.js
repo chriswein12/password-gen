@@ -26,7 +26,7 @@ var generatePassword = function() {
 
   var uppercaseVal = window.confirm("Press OK if password requires uppercase letters.");
   var numberVal = window.confirm("Press OK if password require numbers.");
-  var specialCharVal = window.confirm("Does password require special characters.");
+  var specialCharVal = window.confirm("Press OK if password require special characters.");
 
   if (uppercaseVal) {
     characters.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
@@ -42,12 +42,48 @@ var generatePassword = function() {
 
   console.log(characters);
 
-  for (var i = 0; i < numChar; i++) {
-    var randomChar = characters [Math.floor(Math.random() * characters.length)];
-    console.log(randomChar);
+  var random = function() {
+
+    var password = "";
+
+    for (var i = 0; i < numChar; i++) {
+      var randomChar = characters [Math.floor(Math.random() * characters.length)];
+      password += randomChar;
+      console.log(randomChar);
+    }
+
+    console.log(password);
+
+    if (uppercaseVal) {
+      for (var i = 0; i < numChar;) {
+        var upperChecker = password.charAt(i);
+
+        if (upperChecker === upperChecker.toUpperCase()){
+          alert("True")
+          break;
+        } else if (upperChecker !== upperChecker.toUpperCase && i < numChar) {
+          i++;
+        } else {
+          random();
+        }
+      }
+    }
+
+    for (var i = 0; i < numChar;) {
+      var numChecker = password.charAt(i);
+
+      if (numChecker === upperChecker.toUpperCase()){
+        alert("True")
+        break;
+      } else if (upperChecker !== upperChecker.toUpperCase && i < numChar) {
+        i++;
+      } else {
+        random();
+      }
+    }
   }
 
-
+  random();
 
 
 
