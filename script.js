@@ -3,6 +3,8 @@
 // Adds initial array
 var characters = [""]
 
+
+
 // Main Function
 var generatePassword = function() {
 
@@ -10,10 +12,10 @@ var generatePassword = function() {
   var numChar = function() {
 
     var numberEntered = window.prompt("How many characters are needed for the password, please choose between 8 and 128."); 
-  
+
     numberEntered = parseInt(numberEntered);
     console.log(numberEntered);
-  
+
     if (numberEntered < 8 || numberEntered > 128 || numberEntered === null || numberEntered === '' || isNaN(numberEntered) ) {
       window.alert("Please pick a number of characters between 8 and 128");
       numChar();
@@ -24,19 +26,21 @@ var generatePassword = function() {
     }
   }
 
+
   numChar();
   console.log(numChar);
 
   // Obtain values from prompts confirming lowercase, uppercase, number, and special character selections.
-  var lowercaseVal = window.confirm("Press OK if password requires lowercase letters.");
-  var uppercaseVal = window.confirm("Press OK if password requires uppercase letters.");
-  var numberVal = window.confirm("Press OK if password require numbers.");
-  var specialCharVal = window.confirm("Press OK if password require special characters.");
+  lowercaseVal = window.confirm("Press OK if password requires lowercase letters.");
+  uppercaseVal = window.confirm("Press OK if password requires uppercase letters.");
+  numberVal = window.confirm("Press OK if password require numbers.");
+  specialCharVal = window.confirm("Press OK if password require special characters.");
+  
 
   // Checks to make sure at least one category was selected.
   if (!lowercaseVal && !uppercaseVal && !numberVal && !specialCharVal) {
     window.alert("Password needs to have one of the following: Lowercase, Uppercase, numbers, or special characters.");
-    return generatePassword();
+    generatePassword();
   }
 
   // Pushes the selected values into the array.
@@ -61,7 +65,7 @@ var generatePassword = function() {
 
   console.log(characters);
 
-  //Function that creates the random password based off of the available array, and checks to make sure it has each required character type.
+    //Function that creates the random password based off of the available array, and checks to make sure it has each required character type.
   var random = function() {
 
     var genPassword = "";
@@ -108,16 +112,19 @@ var generatePassword = function() {
         lowerChecker === "x" ||
         lowerChecker === "y" ||
         lowerChecker === "z") {
-          alert("True");
+          
           break;
         } else if (i < numChar) {
           i++;
-        }
-        if (i >= numChar) {  
-          random();
+        } else {
+          break;
         }
       }
-    }    
+    }
+
+    if (i >= numChar) {
+      random();
+      }   
 
       // Confirms password contains at least one uppercase value (if selected earlier)
     if (uppercaseVal) {
@@ -126,47 +133,50 @@ var generatePassword = function() {
         var upperChecker = genPassword.charAt(i);
 
         if (upperChecker === "A" ||
-         upperChecker === "B" ||
-         upperChecker === "C" ||
-         upperChecker === "D" ||
-         upperChecker === "E" ||
-         upperChecker === "F" ||
-         upperChecker === "G" ||
-         upperChecker === "H" ||
-         upperChecker === "I" ||
-         upperChecker === "J" ||
-         upperChecker === "K" ||
-         upperChecker === "L" ||
-         upperChecker === "M" ||
-         upperChecker === "N" ||
-         upperChecker === "O" ||
-         upperChecker === "P" ||
-         upperChecker === "Q" ||
-         upperChecker === "R" ||
-         upperChecker === "S" ||
-         upperChecker === "T" ||
-         upperChecker === "U" ||
-         upperChecker === "V" ||
-         upperChecker === "W" ||
-         upperChecker === "X" ||
-         upperChecker === "Y" ||
-         upperChecker === "Z") {
-          alert("True")
+          upperChecker === "B" ||
+          upperChecker === "C" ||
+          upperChecker === "D" ||
+          upperChecker === "E" ||
+          upperChecker === "F" ||
+          upperChecker === "G" ||
+          upperChecker === "H" ||
+          upperChecker === "I" ||
+          upperChecker === "J" ||
+          upperChecker === "K" ||
+          upperChecker === "L" ||
+          upperChecker === "M" ||
+          upperChecker === "N" ||
+          upperChecker === "O" ||
+          upperChecker === "P" ||
+          upperChecker === "Q" ||
+          upperChecker === "R" ||
+          upperChecker === "S" ||
+          upperChecker === "T" ||
+          upperChecker === "U" ||
+          upperChecker === "V" ||
+          upperChecker === "W" ||
+          upperChecker === "X" ||
+          upperChecker === "Y" ||
+          upperChecker === "Z") {
+      
           break;
         } else if (i < numChar) {
           i++;
-        }
-        if (i >= numChar) {  
-          random();
+        } else {
+          break;
         }
       }
     }
+
+    if (i >= numChar) {
+      random();
+      }
 
       // Confirms password contains at least one number value (if selected earlier)
     if (numberVal) {
       for (var i = 0; i < numChar;) {
         var numChecker = genPassword.charAt(i);
-
+        
         if (numChecker === "0" ||
           numChecker === "1" ||
           numChecker === "2" ||
@@ -177,16 +187,20 @@ var generatePassword = function() {
           numChecker === "7" ||
           numChecker === "8" ||
           numChecker === "9") {
-          alert("True")
+    
           break;
         } else if (i < numChar) {
           i++;
-        } 
-        if (i >= numChar) {
-          random();
+              
+        } else {
+          break;
         }
       }
     }
+
+    if (i >= numChar) {
+      random();
+      }
 
       // Confirms password contains at least one special character value (if selected earlier)
     if (specialCharVal) {
@@ -210,23 +224,45 @@ var generatePassword = function() {
         specialChecker === ":" ||
         specialChecker === ";" ||
         specialChecker === "-") {
-          alert("True")
+          
           break;
         } else if (i < numChar) {
           i++;
-        } 
-        if (i >= numChar) {
-          random();
+        } else {
+          break;
         }
       }
     }
+
+    if (i >= numChar) {
+      random();
+      }
+
+    debugger;
+    console.log(genPassword);
+
     return genPassword;
+  
+
   }
 
   random();
+  console.log(random);
+
+  return;
+
+
 
   
 }
+
+
+
+
+
+  
+
+
 
 
 
@@ -237,6 +273,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -246,3 +283,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
