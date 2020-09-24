@@ -39,7 +39,7 @@ var generatePassword = function() {
 
   // Checks to make sure at least one category was selected.
   if (!lowercaseVal && !uppercaseVal && !numberVal && !specialCharVal) {
-    window.alert("Password needs to have one of the following: Lowercase, Uppercase, numbers, or special characters.");
+    window.alert("Password needs to have one of the following: Lowercase characters, uppercase character, numbers, or special characters.");
     generatePassword();
   }
 
