@@ -65,7 +65,7 @@ var generatePassword = function() {
 
   console.log(characters);
 
-    //Function that creates the random password based off of the available array, and checks to make sure it has each required character type.
+  //Function that creates the random password based off of the available array, and checks to make sure it has each required character type.
   var random = function() {
 
     var genPassword = "";
@@ -116,11 +116,8 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
-        } else if (i = numChar) {
-          return random();       
-
         } else {
-          break;
+          return random();       
         }
       }
     }
@@ -161,11 +158,8 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
-        } else if (i = numChar) {
-          return random();       
-
         } else {
-          break;
+          return random();       
         }
       }
     }
@@ -189,11 +183,8 @@ var generatePassword = function() {
         } else if (i < numChar) {
           i++;
               
-        } else if (i = numChar) {
-          return random();       
-
         } else {
-          break;
+          return random();       
         }
       }
     }
@@ -224,11 +215,8 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
-        } else if (i = numChar) {
-          return random();       
-
         } else {
-          break;
+          return random();       
         }
       }
     }
@@ -239,8 +227,6 @@ var generatePassword = function() {
     random = genPassword;
 
     console.log(random);
-
-    console.log(genPassword);
 
     return random;
   
