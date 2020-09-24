@@ -8,7 +8,7 @@ var characters = [""]
 // Main Function
 var generatePassword = function() {
 
-  //Function to obtain the user input and verify it is a number between 9 and 128
+  //Function to obtain the user input and verify it is a number between 8 and 128
   var numChar = function() {
 
     var numberEntered = window.prompt("How many characters are needed for the password, please choose between 8 and 128."); 
@@ -83,7 +83,7 @@ var generatePassword = function() {
     // Confirms password contains at least one lowercase value (if selected earlier)
     if (lowercaseVal) {
       
-      for (var i = 0; i < numChar;) {
+      for (var i = 0; i <= numChar;) {
         var lowerChecker = genPassword.charAt(i);
 
         if (lowerChecker === "a" ||
@@ -116,20 +116,19 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
+        } else if (i = numChar) {
+          return random();       
+
         } else {
           break;
         }
       }
     }
 
-    if (i >= numChar) {
-      random();
-      }   
-
-      // Confirms password contains at least one uppercase value (if selected earlier)
+    // Confirms password contains at least one uppercase value (if selected earlier)
     if (uppercaseVal) {
 
-      for (var i = 0; i < numChar;) {
+      for (var i = 0; i <= numChar;) {
         var upperChecker = genPassword.charAt(i);
 
         if (upperChecker === "A" ||
@@ -162,19 +161,17 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
+        } else if (i = numChar) {
+          return random();       
+
         } else {
           break;
         }
       }
     }
-
-    if (i >= numChar) {
-      random();
-      }
-
       // Confirms password contains at least one number value (if selected earlier)
     if (numberVal) {
-      for (var i = 0; i < numChar;) {
+      for (var i = 0; i <= numChar;) {
         var numChecker = genPassword.charAt(i);
         
         if (numChecker === "0" ||
@@ -192,19 +189,18 @@ var generatePassword = function() {
         } else if (i < numChar) {
           i++;
               
+        } else if (i = numChar) {
+          return random();       
+
         } else {
           break;
         }
       }
     }
 
-    if (i >= numChar) {
-      random();
-      }
-
-      // Confirms password contains at least one special character value (if selected earlier)
+          // Confirms password contains at least one special character value (if selected earlier)
     if (specialCharVal) {
-      for (var i = 0; i < numChar;) {
+      for (var i = 0; i <= numChar;) {
         var specialChecker = genPassword.charAt(i);
 
         if (specialChecker === "!" ||
@@ -228,28 +224,39 @@ var generatePassword = function() {
           break;
         } else if (i < numChar) {
           i++;
+        } else if (i = numChar) {
+          return random();       
+
         } else {
           break;
         }
       }
     }
 
-    if (i >= numChar) {
-      random();
-      }
-
-    debugger;
+    
     console.log(genPassword);
 
-    return genPassword;
+    random = genPassword;
+
+    console.log(random);
+
+    console.log(genPassword);
+
+    return random;
   
 
   }
 
   random();
+
+
   console.log(random);
 
-  return;
+  generatePassword = random;
+
+  console.log(generatePassword);
+
+  return generatePassword;
 
 
 
